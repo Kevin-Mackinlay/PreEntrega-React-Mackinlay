@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
-  return (
+/* function App() {
+  let logueado = true; */
+//Logica sin sugar sintax
+/* const estadoLogueado = () => {
+    if (logueado == false) {
+      return (
+        <button className="">
+          <p>Aceptar</p>
+        </button>
+      );
+    } else {
+      return (
+        <div>
+          <button className="">
+            <p>Cancelar</p>
+          </button>
+          
+        </div>
+      );
+    }
+  }; */
+/*   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Mi proyecto React de CoderHouse</h1>
+      {logueado == true ? (
+        <button className="">
+          <p>Aceptar</p>
+        </button>
+      ) : (
+        <button className="">
+          <p>Cancelar</p>
+        </button>
+      )}
     </div>
   );
 }
+ */
+import FormularioLogin from "./componentes/formularios/formularioLogin"
+import FormularioRegistrarse from "./componentes/formularios/formularioRegistrarse"
+//componente
 
+//componente
+
+
+function App() {
+  let tipoFormulario = "login";
+  return (
+    <div>
+      <h1> Mi Proyecto</h1>
+      {tipoFormulario === "login" ? <FormularioLogin /> : <FormularioRegistrarse />}
+    </div>
+  );
+}
 export default App;
