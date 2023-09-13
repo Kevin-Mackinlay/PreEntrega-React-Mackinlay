@@ -10,9 +10,9 @@ import "./Navbar.css";
 export const Texto1 = () =>{
     return <h1> Texto1</h1>
 }
-export const Texto2 = () =>{
-    return <h1> Texto2</h1>
-}
+// export const Texto2 = () =>{
+//     return <h1> Texto2</h1>
+// }
 
 function NavScrollExample({ texto, numero, valor, sumar, children }) {
  
