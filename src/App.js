@@ -28,7 +28,6 @@ function App() {
   }
 
   return (
-   
     <div>
       <Navbar texto="Tienda Sports" numero={1} valor={true}>
         <h1>Children1</h1>
@@ -37,28 +36,34 @@ function App() {
       <br />
       <br />
       <div>
-        <h1>Contador</h1>
+        <h1 style={{ marginLeft: "30px" }}>Contador</h1>
         {contadorSinEstado}
-        <button onClick={sumarSinEstado}> Boton sin estado</button>
+        <button onClick={sumarSinEstado} style={{ marginLeft: "30px" }}>
+          {" "}
+          Boton sin estado
+        </button>
         <br />
         <div style={{ marginLeft: "30px" }}>
           <strong>{contadorSinEstado}</strong>
         </div>
         <br />
-        <button onClick={sumaConEstado}>BOTON CON ESTADO</button>
+        <button onClick={sumaConEstado} style={{ marginLeft: "30px" }}>
+          BOTON CON ESTADO
+        </button>
         <br />
         <div style={{ marginLeft: "30px" }}>
           <strong>{contador}</strong>
         </div>
-        <ItemListContainer greeting="Bienvenidos a itemListContainer" />
+        <div style={{fontFamily:"cursive"}}>
+          <ItemListContainer greeting="itemListContainer" />
+        </div>
       </div>
-  
-    {/* /*   <div>
+
+      {/* /*   <div>
       <h1 className="titulo" style={{padding:10}}> Mi Proyecto</h1>
       {tipoFormulario === "login" ? <FormularioLogin /> : <FormularioRegistrarse />}
     </div> */}
-    </div> 
-   
+    </div>
   );
   }
 export default App;
