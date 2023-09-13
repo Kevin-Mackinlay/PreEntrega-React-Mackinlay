@@ -1,10 +1,12 @@
-import React from 'react'
-
-const Item = ({user}) => {
-    console.log(user);
+export const Item = ({ user }) => {
+  // console.log(user)
+  // console.log(user)
+ 
   return (
-    <div>soy item</div>
-  )
-}
-
-export default Item
+    <div>
+      <h1>{user.nombre}</h1>
+      <h2>{user.id}</h2>
+    </div>
+    //el user que llega es un objeto con sus propiedades que s emuestran en el DOM
+  );
+};

@@ -1,3 +1,15 @@
 .titulo{
-    color: blue;
+    color: rgb(64, 64, 152);
+}
+
+body{
+   background-color: lightseagreen !important;
+}
+
+button{
+    color: rgb(238, 238, 244);
+    background-color: dimgray;
+    display: flex;
+    flex-direction: column;
+    
 }
