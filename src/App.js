@@ -35,12 +35,12 @@ function App() {
       </Navbar>
       <br />
       <br />
-      <div>
-        <h1 style={{ marginLeft: "30px" }}>Contador</h1>
+      <div style={{ marginLeft: "30px" }} >
+        <h1 >Contador</h1>
         {contadorSinEstado}
         <button onClick={sumarSinEstado} style={{ marginLeft: "30px" }}>
           {" "}
-          Boton sin estado
+          Boton s/estado
         </button>
         <br />
         <div style={{ marginLeft: "30px" }}>
@@ -48,14 +48,14 @@ function App() {
         </div>
         <br />
         <button onClick={sumaConEstado} style={{ marginLeft: "30px" }}>
-          BOTON CON ESTADO
+          Boton c/estado
         </button>
         <br />
         <div style={{ marginLeft: "30px" }}>
           <strong>{contador}</strong>
         </div>
-        <div style={{fontFamily:"cursive"}}>
-          <ItemListContainer greeting="itemListContainer" />
+        <div style={{fontWeight:"bold"}}>
+          <ItemListContainer greeting=" Bienvenido al itemListContainer" />
         </div>
       </div>
 

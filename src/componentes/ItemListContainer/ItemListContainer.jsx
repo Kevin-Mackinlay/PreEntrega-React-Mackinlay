@@ -22,7 +22,7 @@ const ItemListContainer = ({ greeting }) => {
     <div>
       <h2>{greeting}</h2>
       {/* //pro de APP.JS */}
-      <button
+      <button style={{marginLeft:"30px"}}
         onClick={() => {
           setUsers(usuarios.find((us) => us.id === 2));
         }}
