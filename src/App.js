@@ -1,13 +1,13 @@
 import Navbar from "./componentes/NavBar/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-/* import FormularioLogin from "./componentes/formularios/formularioLogin"
-import FormularioRegistrarse from "./componentes/formularios/formularioRegistrarse" */
+import FormularioLogin from "./componentes/formularios/formularioLogin"
+import FormularioRegistrarse from "./componentes/formularios/formularioRegistrarse" 
 import { useState } from "react";
 import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer.jsx"
 
 
 function App() {
-  /*  let tipoFormulario = "login"; */
+  let tipoFormulario = "login"; 
 
   const [contador, setContador] = useState(0);
   // console.log(contador);
@@ -59,10 +59,10 @@ function App() {
         </div>
       </div>
 
-      {/* /*   <div>
+       <div>
       <h1 className="titulo" style={{padding:10}}> Mi Proyecto</h1>
       {tipoFormulario === "login" ? <FormularioLogin /> : <FormularioRegistrarse />}
-    </div> */}
+    </div>
     </div>
   );
   }
