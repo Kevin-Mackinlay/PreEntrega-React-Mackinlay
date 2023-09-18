@@ -4,6 +4,9 @@ import FormularioLogin from "./componentes/formularios/formularioLogin"
 import FormularioRegistrarse from "./componentes/formularios/formularioRegistrarse" 
 import { useState } from "react";
 import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer.jsx"
+import { Toast } from "bootstrap";
+import Toast from './componentes/toast/toast.jsx'
+
 
 
 function App() {
@@ -26,6 +29,10 @@ function App() {
   function sumaConEstado(){
     setContador(contador+1)
   }
+
+  const [mensaje, setMensaje] = useState('')
+  const [isOpen, setIsOpen] = useState(false)
+  const [estado, setEstado] = useState('')
 
   return (
     <div>
@@ -63,6 +70,10 @@ function App() {
       <h1 className="titulo" style={{padding:10}}> Mi Proyecto</h1>
       {tipoFormulario === "login" ? <FormularioLogin /> : <FormularioRegistrarse />}
     </div>
+<div className="App">
+  <h1>Promises</h1>
+  <Toast mensaje={mensaje} isOpen={isOpen} estado={estado}/>
+</div>
     </div>
   );
   }
