@@ -1,6 +1,6 @@
-const InputUsuario = () => {
-  return <input type="text" placeholder="usuario" />;
-};
+// const InputUsuario = () => {
+//   return <input type="text" placeholder="usuario" />;
+// };
 
 
-export default InputUsuario
+// export default InputUsuario

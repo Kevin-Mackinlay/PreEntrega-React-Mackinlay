@@ -1,4 +1,4 @@
-const Toast = {{mensaje, isOpen, estado}} => {
+const Toast = ({mensaje, isOpen, estado}) => {
       return (
         <>
             <div style={isOpen ? styles.toastOpen : styles.toastClose}>
