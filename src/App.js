@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer.jsx";
 // import { Toast } from "bootstrap";
 import Toast from "./componentes/toast/toast.jsx";
+import Listado from "./componentes/Listado/Listado.jsx";
 
 const data = [
   {
@@ -43,14 +44,45 @@ function App() {
   const [mensaje, setMensaje] = useState("Hola");
   const [isOpen, setIsOpen] = useState(false);
   const [estado, setEstado] = useState("");
+  const [posts, setPosts] = useState();
+
+  // const products = [
+  //   { id: 1, nombre: "remera", descripcion: "material liso", stock: 10 },
+  //   { id: 1, nombre: "short", descripcion: "material liso", stock: 10 },
+  //   { id: 1, nombre: "campera", descripcion: "material liso", stock: 10 },
+  //   { id: 1, nombre: "camiseta", descripcion: "material liso", stock: 10 },
+  // ];
+
+  // const getProducts = new Promise((resolve) => {
+  //   setTimeout(() => {
+  //     resolve(products);
+  //   }, 3000);
+  // });
+
+  // getProducts.then((data) => {
+  //   console.log(data);
+  //   console.log("Aca termina promesa");
+  // });
 
   const getPosts = () => {
-    fetch("https://api.mercadolibre.com/sites/MLA/search")
+    fetch("https://jsonplaceholde.typicode.com/posts")
       .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
+      .then((data) => {
+        setPosts(data);
+        setMensaje("Posts cargados");
+        setEstado("success");
+        setIsOpen(true);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setMensaje("Hubo un error con el servicio");
+        setEstado("error");
+        setIsOpen(true);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setIsOpen(false);
+        }, 3000);
+      });
   };
 
   useEffect(() => {
@@ -67,7 +99,7 @@ function App() {
       </Navbar>
       <br />
       <br />
-      <div style={{ marginLeft: "30px" }}>
+      {/* <div style={{ marginLeft: "30px" }}>
         <h1>Contador</h1>
         {contadorSinEstado}
         <button onClick={sumarSinEstado} style={{ marginLeft: "30px" }}>
@@ -89,15 +121,15 @@ function App() {
         <div style={{ fontWeight: "bold" }}>
           <ItemListContainer greeting=" Bienvenido al itemListContainer" />
         </div>
-      </div>
+      </div> */}
       {/* 
        <div>
       <h1 className="titulo" style={{padding:10}}> Mi Proyecto</h1>
       {tipoFormulario === "login" ? <FormularioLogin /> : <FormularioRegistrarse />}
     </div> */}
       <div className="App">
-        <input type="button" onClick={() => setIsOpen(!isOpen)}></input>
         <h1>Promises</h1>
+        <Listado />
         <Toast mensaje={mensaje} isOpen={isOpen} estado={estado} />
       </div>
     </div>
