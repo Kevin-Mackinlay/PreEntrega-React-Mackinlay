@@ -7,6 +7,7 @@ import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer
 // import { Toast } from "bootstrap";
 import Toast from "./componentes/toast/toast.jsx";
 import Listado from "./componentes/Listado/Listado.jsx";
+import ItemCount from "./componentes/ItemCount/ItemCount";
 
 const data = [
   {
@@ -24,54 +25,25 @@ const data = [
 ];
 
 function App() {
-  // let tipoFormulario = "login";
-
-  const [contador, setContador] = useState(0);
-  // console.log(contador);
-  // console.log(setContador);
-
-  let contadorSinEstado = 0;
-
-  function sumarSinEstado() {
-    contadorSinEstado++;
-    //  console.log(contadorSinEstado);
-  }
-
-  function sumaConEstado() {
-    setContador(contador + 1);
-  }
+  
 
   const [mensaje, setMensaje] = useState("Hola");
   const [isOpen, setIsOpen] = useState(false);
   const [estado, setEstado] = useState("");
-  const [posts, setPosts] = useState();
+  const [products, setProducts] = useState();
+  const [valor, setValor] = useState(0);
 
-  // const products = [
-  //   { id: 1, nombre: "remera", descripcion: "material liso", stock: 10 },
-  //   { id: 1, nombre: "short", descripcion: "material liso", stock: 10 },
-  //   { id: 1, nombre: "campera", descripcion: "material liso", stock: 10 },
-  //   { id: 1, nombre: "camiseta", descripcion: "material liso", stock: 10 },
-  // ];
+  
 
-  // const getProducts = new Promise((resolve) => {
-  //   setTimeout(() => {
-  //     resolve(products);
-  //   }, 3000);
-  // });
-
-  // getProducts.then((data) => {
-  //   console.log(data);
-  //   console.log("Aca termina promesa");
-  // });
-
-  const getPosts = () => {
-    fetch("https://jsonplaceholde.typicode.com/posts")
+  const getProducts = () => {
+    fetch("https://fakestoreapi.com/products/")
       .then((response) => response.json())
       .then((data) => {
-        setPosts(data);
+        setProducts(data);
         setMensaje("Posts cargados");
         setEstado("success");
         setIsOpen(true);
+        console.log(products);
       })
       .catch((error) => {
         setMensaje("Hubo un error con el servicio");
@@ -87,9 +59,9 @@ function App() {
 
   useEffect(() => {
     setTimeout(() => {
-      getPosts();
+      getProducts();
     }, 3000);
-  });
+  },[])
 
   return (
     <div>
@@ -128,11 +100,24 @@ function App() {
       {tipoFormulario === "login" ? <FormularioLogin /> : <FormularioRegistrarse />}
     </div> */}
       <div className="App">
-        <h1>Promises</h1>
-        <Listado />
+        <h1>Nuestros Productos</h1>
+        {
+          products ?  <Listado products={products} /> : <h2>Loading...</h2>
+        }
+       
         <Toast mensaje={mensaje} isOpen={isOpen} estado={estado} />
       </div>
+
+      <div className="App">
+        <h1>Contador</h1>
+        <h2>{valor}</h2>
+       
+      </div>
+
+
     </div>
+
+
   );
 }
 export default App;

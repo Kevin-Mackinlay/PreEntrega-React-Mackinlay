@@ -1,11 +1,16 @@
-const Listado = () => {
-  return(
-  <div>
-    <h3>Titulo</h3>
+const Listado = ({ products }) => {
+  console.log(products);
+  return (
+    <div>
+      {products.map((products) => (
+        <li key={products.id}>
+          {products.title}
 
-    <p>Contenido</p>
-  </div>
-  )
-}
+          {/* <p>{post.body}</p> */}
+        </li>
+      ))}
+    </div>
+  );
+};
 
-export default Listado
+export default Listado;
