@@ -7,22 +7,10 @@ import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer
 // import { Toast } from "bootstrap";
 import Toast from "./componentes/toast/toast.jsx";
 import Listado from "./componentes/Listado/Listado.jsx";
-import ItemCount from "./componentes/ItemCount/ItemCount";
+import ItemCount from "./componentes/ItemCount/ItemCount"
+import './App.css';
+import Item from "./componentes/Item/Item";
 
-const data = [
-  {
-    title: "Post 1",
-    body: "Body 1",
-  },
-  {
-    title: "Post 2",
-    body: "Body 2",
-  },
-  {
-    title: "Post 3",
-    body: "Body 3",
-  },
-];
 
 function App() {
   
@@ -32,6 +20,10 @@ function App() {
   const [estado, setEstado] = useState("");
   const [products, setProducts] = useState();
   const [valor, setValor] = useState(0);
+  const [totalProducts, setTotalProducts] = useState(0)
+  const [lista, setLista] = useState([])
+
+  useEffect(() => ( setTotalProducts (lista.length)),[lista])
 
   
 
@@ -65,59 +57,30 @@ function App() {
 
   return (
     <div>
-      <Navbar texto="Tienda Sports" numero={1} valor={true}>
+      <Navbar texto="Tienda Virtual" numero={1} valor={true}>
         <h1>Children1</h1>
         {/* <h1>Children2</h1> */}
       </Navbar>
       <br />
       <br />
-      {/* <div style={{ marginLeft: "30px" }}>
-        <h1>Contador</h1>
-        {contadorSinEstado}
-        <button onClick={sumarSinEstado} style={{ marginLeft: "30px" }}>
-          {" "}
-          Boton s/estado
-        </button>
-        <br />
-        <div style={{ marginLeft: "30px" }}>
-          <strong>{contadorSinEstado}</strong>
-        </div>
-        <br />
-        <button onClick={sumaConEstado} style={{ marginLeft: "30px" }}>
-          Boton c/estado
-        </button>
-        <br />
-        <div style={{ marginLeft: "30px" }}>
-          <strong>{contador}</strong>
-        </div>
-        <div style={{ fontWeight: "bold" }}>
-          <ItemListContainer greeting=" Bienvenido al itemListContainer" />
-        </div>
-      </div> */}
-      {/* 
-       <div>
-      <h1 className="titulo" style={{padding:10}}> Mi Proyecto</h1>
-      {tipoFormulario === "login" ? <FormularioLogin /> : <FormularioRegistrarse />}
-    </div> */}
+     
       <div className="App">
-        <h1>Nuestros Productos</h1>
-        {
-          products ?  <Listado products={products} /> : <h2>Loading...</h2>
-        }
-       
+        <h1 style={{ textAlign: "center" }}>Nuestros Productos</h1>
+        <div className="App">
+          <h1>Contador</h1>
+          <h2>{valor}</h2>
+        </div>
+
+        {products ? <Listado  setLista={setLista} products={products} /> : <h2>Loading...</h2>}
+<Item/>
         <Toast mensaje={mensaje} isOpen={isOpen} estado={estado} />
       </div>
 
       <div className="App">
         <h1>Contador</h1>
         <h2>{valor}</h2>
-       
       </div>
-
-
     </div>
-
-
   );
 }
 export default App;

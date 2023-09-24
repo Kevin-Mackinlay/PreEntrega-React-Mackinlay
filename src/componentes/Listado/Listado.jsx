@@ -3,11 +3,11 @@ const Listado = ({ products }) => {
   return (
     <div>
       {products.map((products) => (
-        <li key={products.id}>
+        <div key={products.id}>
           {products.title}
-
+{/* <button onClick={() => } */}
           {/* <p>{post.body}</p> */}
-        </li>
+        </div>
       ))}
     </div>
   );
