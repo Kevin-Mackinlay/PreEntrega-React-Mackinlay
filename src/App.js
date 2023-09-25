@@ -7,25 +7,20 @@ import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer
 // import { Toast } from "bootstrap";
 import Toast from "./componentes/toast/toast.jsx";
 import Listado from "./componentes/Listado/Listado.jsx";
-import ItemCount from "./componentes/ItemCount/ItemCount"
-import './App.css';
+import ItemCount from "./componentes/ItemCount/ItemCount";
+import "./App.css";
 import Item from "./componentes/Item/Item";
 
-
 function App() {
-  
-
   const [mensaje, setMensaje] = useState("Hola");
   const [isOpen, setIsOpen] = useState(false);
   const [estado, setEstado] = useState("");
   const [products, setProducts] = useState();
   const [valor, setValor] = useState(0);
-  const [totalProducts, setTotalProducts] = useState(0)
-  const [lista, setLista] = useState([])
+  const [totalProducts, setTotalProducts] = useState(0);
+  const [lista, setLista] = useState([]);
 
-  useEffect(() => ( setTotalProducts (lista.length)),[lista])
-
-  
+  useEffect(() => setTotalProducts(lista.length), [lista]);
 
   const getProducts = () => {
     fetch("https://fakestoreapi.com/products/")
@@ -53,7 +48,7 @@ function App() {
     setTimeout(() => {
       getProducts();
     }, 3000);
-  },[])
+  }, []);
 
   return (
     <div>
@@ -63,7 +58,7 @@ function App() {
       </Navbar>
       <br />
       <br />
-     
+
       <div className="App">
         <h1 style={{ textAlign: "center" }}>Nuestros Productos</h1>
         <div className="App">
@@ -71,15 +66,11 @@ function App() {
           <h2>{valor}</h2>
         </div>
 
-        {products ? <Listado  setLista={setLista} products={products} /> : <h2>Loading...</h2>}
-<Item/>
+        {products ? <Listado setLista={setLista} products={products} /> : <h2>Loading...</h2>}
+        <Item />
         <Toast mensaje={mensaje} isOpen={isOpen} estado={estado} />
       </div>
 
-      <div className="App">
-        <h1>Contador</h1>
-        <h2>{valor}</h2>
-      </div>
     </div>
   );
 }

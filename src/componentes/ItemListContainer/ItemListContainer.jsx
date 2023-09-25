@@ -1,4 +1,4 @@
-import {Item} from "../Item/Item";
+import Item from '../Item/Item'
 import { useState } from "react";
 
 const ItemListContainer = ({ greeting }) => {

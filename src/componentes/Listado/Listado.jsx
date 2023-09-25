@@ -1,3 +1,5 @@
+import Item from "../Item/Item";
+
 const Listado = ({ products }) => {
   console.log(products);
   return (
@@ -5,8 +7,8 @@ const Listado = ({ products }) => {
       {products.map((products) => (
         <div key={products.id}>
           {products.title}
-{/* <button onClick={() => } */}
-          {/* <p>{post.body}</p> */}
+
+         <Item/>
         </div>
       ))}
     </div>

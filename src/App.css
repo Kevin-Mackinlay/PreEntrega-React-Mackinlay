@@ -1,3 +1,13 @@
 .titulo{
   color: blue
 }
+
+body{
+  background-color: rgba(100, 159, 214, 0.853) !important;
+}
+
+.buttons{
+flex-direction: row;
+
+
+}

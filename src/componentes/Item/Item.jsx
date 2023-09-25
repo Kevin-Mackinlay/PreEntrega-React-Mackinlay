@@ -20,15 +20,20 @@ const main = (action) =>{
   }
 }
 
-return(
+return (
   <div>
-    <h1> {title} - {contador}</h1>
-    <button onClick={() => main("suma")}>Sumar</button>
-    <button onClick={() => main("resta")}>Restar</button>
-    <button onClick={() => main("reset")}>Eliminar todo</button>
-    <button onClick={() => main("add")}>Agregar</button>
+    <h1>
+      {" "}
+      {title} - {contador}
+    </h1>
+    <div className="buttons">
+      <button onClick={() => main("suma")}>Sumar</button>
+      <button onClick={() => main("resta")}>Restar</button>
+      <button onClick={() => main("reset")}>Eliminar todo</button>
+      <button onClick={() => main("add")}>Agregar</button>
+    </div>
   </div>
-)
+);
 }
 
 export default Item
